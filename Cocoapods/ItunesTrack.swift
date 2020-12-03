@@ -3,9 +3,8 @@ import Foundation
 
 
 
-struct ItunesTrack: Codable, Response {
+struct ItunesTrack: Response, Codable {
     var httpStatus: Int = 0
-    
     var artist: String
     var track: String
     var artwork: String
@@ -17,5 +16,16 @@ struct ItunesTrack: Codable, Response {
         case track = "trackName"
         case artwork = "artworkUrl100"
     }
+    
+}
+
+
+struct ItunesTracks: Response {
+    var httpStatus: Int = 0
+    var tracks: [ItunesTrack]
+}
+
+
+extension Array where Element == ItunesTrack {
     
 }

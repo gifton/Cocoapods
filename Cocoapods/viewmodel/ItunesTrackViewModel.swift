@@ -40,44 +40,18 @@ final class ItunesTrackViewModel: ViewModel, TrackDecodable {
     var activeUrl: String?
     
     // public track search method
-    public func search(for predicate: String, completionHandler: @escaping ([ItunesTrack], Error?) -> Void)  {
+    public func search(for predicate: String, completionHandler: @escaping ([ItunesTrack]?, Error?) -> Void)  {
         
         if !(predicate.count > 0) {
-            completionHandler([], nil)
+            completionHandler(nil, nil)
             return
         }
         
-        guard let url = URL(string: Constants.endpoint + predicate) else { completionHandler([], nil); return }
+        guard let url = URL(string: Constants.endpoint + predicate) else { completionHandler(nil, nil); return }
         activeUrl = url.absoluteString
         
-        // get data
-        guard let session = session else {
-            self.session = URLSession()
-            return
-        }
-        let _ = session.dataTask(with: url) { (data, resp, err) in
-            
-            if err != nil {
-                completionHandler([], err)
-                return
-            }
-            
-            guard let data = data else { completionHandler([], err); return }
-            guard let toString = String(data: data, encoding: .utf8) else { return }
-            
-            print(toString)
-            do {
-                let tracks = try self.decode(json: data)
-                completionHandler(tracks, err)
-                self.activeUrl = nil
-            } catch (let err) {
-                completionHandler([], err)
-                debugPrint("unable to decode object", data, "   ", err)
-            }
-            
-            
-        }.resume()
-        
+        let service = ItunesTrackService()
+        service.getTracks(predicate: predicate, completion: completionHandler)
     }
     
     

@@ -2,17 +2,17 @@
 import Foundation
 
 
-struct TrackLsitApi: ApiHandler {
+struct TrackListApi: APIHandler {
     
     
-    func makeRequest(from data: [String: Any]) -> Request {
-        let url = URL(string: Constants.endpoint)!
+    func makeRequest(with predicate: String) -> Request {
+        let url = URL(string: Constants.endpoint + predicate)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         return Request(urlRequest: request, requestBuilder: DefaultRequest())
     }
     
-    func parseResponse(data: Data) throws -> [ItunesTrack] {
+    func parseResponse(data: Data) throws -> ItunesTracks {
         return try defaultParseResponse(data: data)
     }
     
@@ -24,3 +24,4 @@ struct TrackLsitApi: ApiHandler {
         return items
     }
 }
+

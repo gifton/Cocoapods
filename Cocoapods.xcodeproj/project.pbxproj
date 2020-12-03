@@ -22,6 +22,8 @@
 		6083BDD12578F7ED00440E31 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083BDD02578F7ED00440E31 /* AppHelper.swift */; };
 		6083BDDF2578FC1800440E31 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083BDDE2578FC1800440E31 /* MockURLProtocol.swift */; };
 		6083BDEF2579052000440E31 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083BDEE2579052000440E31 /* MockService.swift */; };
+		6083BE0725790D5A00440E31 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083BE0625790D5A00440E31 /* Api.swift */; };
+		6083BE1F25791B2B00440E31 /* TrackListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083BE1E25791B2B00440E31 /* TrackListService.swift */; };
 		60AA307D2576D41200378A65 /* ItunesTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AA307C2576D41200378A65 /* ItunesTrackViewModel.swift */; };
 		60AA30812576D4A300378A65 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AA30802576D4A300378A65 /* Constants.swift */; };
 		60D5E7DF257819BF005E1056 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D5E7DE257819BF005E1056 /* UIStackView+Extension.swift */; };
@@ -70,6 +72,8 @@
 		6083BDD02578F7ED00440E31 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		6083BDDE2578FC1800440E31 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockURLProtocol.swift; path = Cocoapods/helpers/MockURLProtocol.swift; sourceTree = SOURCE_ROOT; };
 		6083BDEE2579052000440E31 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		6083BE0625790D5A00440E31 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		6083BE1E25791B2B00440E31 /* TrackListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListService.swift; sourceTree = "<group>"; };
 		60AA307B2576D41100378A65 /* Cocoapods-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Cocoapods-Bridging-Header.h"; path = "/Users/gifton/dev/misc/Cocoapods/Cocoapods/Cocoapods-Bridging-Header.h"; sourceTree = "<absolute>"; };
 		60AA307C2576D41200378A65 /* ItunesTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesTrackViewModel.swift; sourceTree = "<group>"; };
 		60AA30802576D4A300378A65 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -153,8 +157,10 @@
 			children = (
 				6083BDBE2578ED3F00440E31 /* RequestHandler.swift */,
 				6083BDC22578EDCB00440E31 /* TrackListApi.swift */,
+				6083BE1E25791B2B00440E31 /* TrackListService.swift */,
 				6083BDC62578EDF100440E31 /* Request.swift */,
 				6083BDB92578ED2A00440E31 /* Mocks */,
+				6083BE0625790D5A00440E31 /* Api.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -237,13 +243,13 @@
 				92E433BD24F6A26A00892471 /* LaunchScreen.storyboard */,
 				92E433C024F6A26A00892471 /* Info.plist */,
 				92E433C124F6A26A00892471 /* main.m */,
+				60AA307B2576D41100378A65 /* Cocoapods-Bridging-Header.h */,
+				60EF28FC2576DA7A002BA521 /* CocoapodsTests-Bridging-Header.h */,
+				604B9A5E257852D1004D5E47 /* bridging-header-swift.h */,
 				604B9A5025784256004D5E47 /* View */,
 				60D5E7DD25781969005E1056 /* helpers */,
 				60D5E7D925781953005E1056 /* viewmodel */,
 				60D5E7DC2578195D005E1056 /* model */,
-				60AA307B2576D41100378A65 /* Cocoapods-Bridging-Header.h */,
-				60EF28FC2576DA7A002BA521 /* CocoapodsTests-Bridging-Header.h */,
-				604B9A5E257852D1004D5E47 /* bridging-header-swift.h */,
 				6083BDD72578FC0100440E31 /* Network */,
 			);
 			path = Cocoapods;
@@ -440,12 +446,14 @@
 				92E433B724F6A26800892471 /* ViewController.m in Sources */,
 				6083BDC72578EDF100440E31 /* Request.swift in Sources */,
 				60AA307D2576D41200378A65 /* ItunesTrackViewModel.swift in Sources */,
+				6083BE1F25791B2B00440E31 /* TrackListService.swift in Sources */,
 				604B9AB325786A96004D5E47 /* Extension+UIView.swift in Sources */,
 				6083BDC32578EDCB00440E31 /* TrackListApi.swift in Sources */,
 				60EF28F92576D611002BA521 /* ItunesTrack.swift in Sources */,
 				6083BDBF2578ED3F00440E31 /* RequestHandler.swift in Sources */,
 				6083BDDF2578FC1800440E31 /* MockURLProtocol.swift in Sources */,
 				604B9A3E257838C9004D5E47 /* TrackCellViewModel.swift in Sources */,
+				6083BE0725790D5A00440E31 /* Api.swift in Sources */,
 				604B9A3525783599004D5E47 /* SearchHeader.swift in Sources */,
 				6083BDEF2579052000440E31 /* MockService.swift in Sources */,
 				92E433B124F6A26800892471 /* AppDelegate.m in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 
 protocol RequestHandler {
     associatedtype RequestDataType
-    func makeRequest(from data: RequestDataType) -> Request
+    func makeRequest(with predicate: RequestDataType) -> Request
     
 }
 
@@ -23,7 +23,7 @@ protocol ResponseHandler {
 }
 
 
-typealias ApiHandler = ResponseHandler & RequestHandler
+typealias APIHandler = ResponseHandler & RequestHandler
 
 
 extension ResponseHandler {

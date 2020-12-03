@@ -80,7 +80,7 @@ private extension TrackListViewController {
         
         
         trackList.search(for: "Drake") { (tracks, err) in
-            print(tracks.count)
+            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

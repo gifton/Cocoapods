@@ -13,10 +13,19 @@ import XCTest
 class ItunesTrackViewModelTests: XCTestCase {
 
     var sut: ItunesTrackViewModel!
+    var loader: APILoader<LoginAPI>!
     let predicate = "Drake"
     
     func setup() {
         sut = ItunesTrackViewModel()
+        
+        let request = LoginAPI()
+        
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let urlSession = URLSession(configuration: configuration)
+        
+        loader = APILoader(apiRequest: request, urlSession: urlSession)
     }
     
     
@@ -40,6 +49,43 @@ class ItunesTrackViewModelTests: XCTestCase {
         })
         
     }
+    
+    func testDoesCreateResponse() {
+        let service = TrackListService()
+        
+        service.mockGetTracks(completion: { (tracks, err) in
+            XCTAssertNotNil(tracks)
+        })
+    }
+    
+    func testTrackServiceCallsGET() {
+        let service = TrackListService()
+        
+        service.mockGetTracks(completion: { (tracks, err) in
+            guard let artist = tracks.first?.artist else { XCTFail(); return }
+            XCTAssertEqual(artist, "Led Zeppelin")
+        })
+        
+    }
+    
+    func testGetTracksSuccess() {
+        let expectation = XCTestExpectation(description: "response")
+        
+        loader.loadAPIRequest(requestData: params) { result, error in
+            
+            if let result = result {
+                guard let artist = tracks.first?.artist else { XCTFail(); return }
+                XCTAssertEqual(artist, "Led Zeppelin")
+                expectation.fulfill()
+            } else {
+                XCTFail()
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    
     
     func testRecievePayloadFromEndpoint() {
         
